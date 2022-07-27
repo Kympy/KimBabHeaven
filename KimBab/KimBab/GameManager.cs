@@ -184,15 +184,15 @@ namespace KimBab
         {
             if(WaitingCount > 0)
             {
-                for(int i = 0; i < TotalTableCount; i++)
+                for(int i = 0; i < TotalTableCount; i++) // 최대 테이블 갯수 까지
                 {
-                    if (tables[i].isUsing == false)
+                    if (tables[i].isUsing == false) // Index 가 낮은 빈 테이블 우선으로
                     {
                         CurrentCustomer++; // 현재 손님 수 증가
                         WaitingCount--; // 대기 손님 수 감소
                         tables[i].SwitchTableState(Table.TableState.waitOrder, "손님" + (TodayVisitor + 1).ToString(), 0); // 빈 테이블에 배치
-                        TodayVisitor++;
-                        TotalVisitor++;
+                        TodayVisitor++; // 오늘 방문자 증가
+                        TotalVisitor++; // 누적 방문자 증가
                         break;
                     }
                 }
@@ -317,7 +317,7 @@ namespace KimBab
                 }
             }
         }
-        public void FinishCleaning()
+        public void FinishCleaning() // 청소 끝내기
         {
             for (int i = 0; i < TotalTableCount; i++)
             {

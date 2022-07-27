@@ -20,21 +20,23 @@ namespace KimBab
             int dayTimer = 0; // 날짜 타이머
             int currentTimer; // 현재 시간
 
-            int windowWidth = 100;
-            int windowHeight = 40;
+            int windowWidth = 100; // 윈도우 가로
+            int windowHeight = 40; // 윈도우 세로
             Console.SetWindowSize(windowWidth, windowHeight);
             Console.SetBufferSize(windowWidth, windowHeight);
+            Console.CursorVisible = false;
             // ===================================== 게임 기본 입력 3종 받기
             GameManager.Instance.InitGame(); // 입력
             GameManager.Instance.InitTableSize(); // 테이블 크기 할당
             Console.Clear();
+
             // ===================================== 직원 이름 초기화
             GameManager.Instance.GetOwner.InitMyName("사장");
             GameManager.Instance.GetChef.InitMyName("주방");
             GameManager.Instance.GetKimbabChef.InitMyName("김밥");
             GameManager.Instance.GetServe.InitMyName("서빙");
+
             // ===================================== 정보 표시
-            Console.CursorVisible = false;
             currentTimer = Environment.TickCount & Int32.MaxValue;
             dayTimer = currentTimer;
 
